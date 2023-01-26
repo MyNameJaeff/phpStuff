@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.inputForm{
+    margin-left: 40%;
+}
+.box, .box2{
+    margin-top: 4%;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+table{
+    border: 2px solid black;
+}
+.table1{
+    margin-left: 0%;
+}
