@@ -9,27 +9,37 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 40%;
+    margin-top: 5%;
 }
 .FormBox{
     background-color: #e5e5e5;
     width: 100%;
     padding: 5%;
     border: 1px solid #d5d5d5;
+    display: flex;
+    justify-content: start;
 }
 input{
-    margin-top: 10%;
+    margin-top: 5%;
 }
 input[type=text]{
-    padding: 2%;
+    padding: 1%;
     width: 60%;
     border: none;
     background-color: #d9d9d9;
+    margin-left: 5%;
+}
+label, h1, .submit{
+    font-weight: bold;
 }
 .file{
     background-color: white;
+    width: 50%;
 }
 .OutputBox{
     display: flex;
+    width: 100%;
 }
 .ImageBox{
     width: 200px;
@@ -41,4 +51,11 @@ img{
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+.form{
+    width: 100%;
+}
+.submit{
+    background-color: #c5c5c5;
+    padding: 6px 36px;
 }
