@@ -31,15 +31,10 @@
             if(isset($_POST['submitForm'])){
                 $fileName = $_FILES['file']['name'];  
                 $temp_name = $_FILES['file']['tmp_name'];
-                if(isset($fileName) && !empty($fileName)){
-                    $location = 'uploads/';
-                    if(move_uploaded_file($temp_name, $location.$fileName)){
-                        echo '<img src="'.$location.$fileName.'" alt="Chosen Image">';
-                    }
-                } else {
-                    echo 'You should select a file to upload !!';
+                $location = 'uploads/';
+                if(move_uploaded_file($temp_name, $location.$fileName)){
+                    echo '<img src="'.$location.$fileName.'" alt="Chosen Image">';
                 }
-                
             }
             ?>
             </div>
