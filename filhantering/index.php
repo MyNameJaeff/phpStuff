@@ -4,48 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" class="rel">
+    <title>Filhantering</title>
 </head>
 <body>
-    <form action="" method="post" id="form" enctype="multipart/form-data" class="form">
-        <input type="submit" name="writeToFile" value="Write to file">
-        <input type="submit" id="sumbitForm" name="submitForm" value="Remove File" class="submit">
-    </form>
+    <div class="FormBox">
+        <form action="#" method="post" id="form" enctype="multipart/form-data" class="form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <input type="submit" id="sumbitForm" name="submitForm" value="Submit" class="submit">
+        </form>
+    </div>
     <?php
-    $filename = "text.txt";
-    $csvFile = "csvFile.csv";
+    $filename = "data.csv";
     $f = fopen($filename, "a+");
-    $c = fopen($csvFile, "r+");
-    $data = [
-        ['Symbol', 'Company', 'Price'],
-        ['GOOG', 'Google Inc.', '800'],
-        ['AAPL', 'Apple Inc.', '500'],
-        ['AMZN', 'Amazon.com Inc.', '250'],
-        ['YHOO', 'Yahoo! Inc.', '250'],
-        ['FB', 'Facebook Inc.', '30']
-    ];
-    $data2 = [];
-    if(isset($_POST['writeToFile'])){
-        echo("The file $filename is open<br>");
-        fwrite($f, "THERES TEXT, INSIDE THE FILE???\nNO WAAAY<br>");
-        $contents = file_get_contents($filename);
-        fclose($f);
-    }
     if(isset($_POST['submitForm'])){
-        readfile($filename);
-        unlink($filename);
-    }
-    if(filesize($csvFile) == 0){
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $data = [[$name, $email]];
         foreach($data as $row){
-            fputcsv($c, $row);
+            fputcsv($f, $row);
+            header("Location:table.php");
         }
-    }
-    while(($row = fgetcsv($c)) !== false) {
-        $data2[] = $row;
-    }    
-    fclose($c);
-    foreach($data2 as $print){
-        echo"$print[0] $print[1] $print[2]<br>";
     }
     ?>
 </body>
