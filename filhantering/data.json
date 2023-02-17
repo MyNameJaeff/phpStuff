@@ -1,0 +1,14 @@
+{
+"user1" : {
+            "name" : "Fredrik",
+            "email" : "fredrik04@hotmail.com"
+        },
+"user2" : {
+            "name" : "Fredrik",
+            "email" : "1234@hotmail.com"
+        },
+"user3" : {
+            "name" : "bond",
+            "email" : "gtehge"
+        }
+}

@@ -12,6 +12,10 @@
     $filename = "data.csv";
     $f = fopen($filename, "a+");
     $data = [];
+    $userNr = 1;
+    unlink("data.json");
+    $jsonName = fopen("data.json", "a+");
+    fwrite($jsonName, '{'.PHP_EOL);
     while (($row = fgetcsv($f)) !== false) {
         $data[] = $row;
     }
@@ -25,7 +29,24 @@
                         <td> $row[0] </td> 
                         <td> $row[1] </td>
                     </tr>";
+        
+        fwrite($jsonName, 
+        '"user'.$userNr.'" : {
+            "name" : "'.$row[0].'",
+            "email" : "'.$row[1].'"
+        }'.checkIfComma($userNr, $data).PHP_EOL);
+        $userNr++;
     }
+    fwrite($jsonName, "}".PHP_EOL);
+    function checkIfComma($number, $data){
+        if($number != count($data)){
+            return ",";
+        }else{
+            return "";
+        }
+    }
+
+    fclose($jsonName);
     $table .= "</table>";
     echo($table);
     fclose($f);
@@ -33,5 +54,16 @@
     <form action="index.php">
         <input type="submit"value="Go back">
     </form>
+    <form action="#" method="post">
+        <input type="submit"value="Clear form" name="clearForm">
+    </form>
+    <?php
+    if(isset($_POST["clearForm"])){
+        unlink($filename);
+        $f = fopen($filename, "a+");
+        fclose($f);
+        header("Location:table.php");
+    }
+    ?>
 </body>
 </html>

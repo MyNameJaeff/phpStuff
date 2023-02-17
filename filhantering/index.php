@@ -26,9 +26,21 @@
         $data = [[$name, $email]];
         foreach($data as $row){
             fputcsv($f, $row);
-            header("Location:table.php");
+            //header("Location:table.php"); //ifall man vill gå till nästa sida efter submit
         }
     }
     ?>
+    <form action="table.php">
+        <input type="submit" value="Go to table">
+    </form>
+    <script>
+        function printJson(){
+            fetch("data.json")
+            .then((response) =>
+                response.json())
+            .then((data) => console.log(data));
+        }
+    </script>
+    <button onclick="printJson()">Print JSON</button>
 </body>
 </html>
