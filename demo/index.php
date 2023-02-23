@@ -13,7 +13,7 @@ include "config.php";
     $password = $_POST['password'];
 
     $gender = $_POST['gender'];
-
+    
     $sql = "INSERT INTO `users`(`firstname`, `lastname`, `email`, `password`, `gender`) 
 
            VALUES ('$first_name','$last_name','$email','$password','$gender')";
