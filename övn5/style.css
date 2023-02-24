@@ -4,3 +4,11 @@ img{
 .imageBox{
     width: 75px;
 }
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    width: 100%;
+}
