@@ -1,19 +1,25 @@
 <?php
-include 'var.php';
-include 'header.php';
-echo "<main class='container d-flex justify-content-around'>";
-$table = '<table border="1" cellpadding="10">';
-$tableReverse = '<table border="1" cellpadding="10">';
-foreach($linje19 as $stop){
-    $table .= "<tr><td> $stop </td></tr>";
+$array = array(165, 170, 184, 156, 198, 200, 202, 209, 199, 145);
+for($j = 0; $j < count($array); $j ++) {
+    for($i = 0; $i < count($array)-1; $i ++){
+        if($array[$i] > $array[$i+1]) {
+            $temp = $array[$i+1];
+            $array[$i+1]=$array[$i];
+            $array[$i]=$temp;
+        }
+    }
 }
-foreach(array_reverse($linje19) as $stop){
-    $tableReverse .= "<tr><td> $stop </td></tr>";
+echo("<br>");
+print_r($array);
+echo("<br>");
+for($j = 0; $j < count($array); $j ++) {
+    for($i = 0; $i < count($array)-1; $i ++){
+        if($array[$i] < $array[$i+1]) {
+            $temp = $array[$i+1];
+            $array[$i+1]=$array[$i];
+            $array[$i]=$temp;
+        }
+    }
 }
-$table .= "</table>";
-$tableReverse .= "</table>";
-echo $table;
-echo $tableReverse;
-echo "</main>";
-include 'footer.php';
+print_r($array);
 ?>
