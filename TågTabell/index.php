@@ -20,6 +20,7 @@ if(isset($_POST['submitForm'])){
     $array = array();
     $array = array_splice($linje19, array_search($stopOne, $linje19), array_search($stopTwo, $linje19)+1);
     echo '<table border="1" cellpadding="10">';
+    echo "<tr><td> Total tid: ".(count($array)*2)." min</td></tr>";
     foreach($array as $stop){
         echo "<tr><td> $stop </td></tr>";
     }
